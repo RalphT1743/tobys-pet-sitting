@@ -48,10 +48,22 @@ type DogPhoto = {
   imageUrl: string;
 };
 
+type Testimonial = {
+  _id: string;
+  customerName: string;
+  petName?: string;
+  quote: string;
+  rating?: number;
+  source?: string;
+  featured?: boolean;
+  displayOrder?: number;
+};
+
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [dogPhotos, setDogPhotos] = useState<DogPhoto[]>([]);
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -91,6 +103,30 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+  const fetchTestimonials = async () => {
+    try {
+      const items = await client.fetch<Testimonial[]>(`
+        *[_type == "testimonial"] | order(displayOrder asc) {
+          _id,
+          customerName,
+          petName,
+          quote,
+          rating,
+          source,
+          featured,
+          displayOrder
+        }
+      `);
+
+      setTestimonials(items);
+    } catch (error) {
+      console.error("Failed to load testimonials:", error);
+    }
+  };
+
+  fetchTestimonials();
+}, []);
   useEffect(() => {
   const fetchDogPhotos = async () => {
     try {
@@ -392,22 +428,48 @@ export default function Home() {
         </section>
 
         <section id="testimonials">
-          <h2 className="sec-heading reveal">What clients say</h2>
+  <h2 className="sec-heading reveal">What clients say</h2>
 
-          <div className="testimonials-grid">
-            <div className="testimonial reveal">
-              <div className="test-ph">
-                Client testimonial coming soon.
-              </div>
-            </div>
+  <div className="testimonials-grid">
+    {testimonials.length > 0 ? (
+      testimonials.map((item) => (
+        <div className="testimonial" key={item._id}>
+          <div className="test-ph">
+            <p>{item.quote}</p>
 
-            <div className="testimonial reveal">
-              <div className="test-ph">
-                Client testimonial coming soon.
-              </div>
-            </div>
+            <strong>{item.customerName}</strong>
+
+            {item.petName && (
+              <div>Pet: {item.petName}</div>
+            )}
+
+            {item.rating && (
+              <div>{"★".repeat(item.rating)}</div>
+            )}
+
+            {item.source && (
+              <span>{item.source}</span>
+            )}
           </div>
-        </section>
+        </div>
+      ))
+    ) : (
+      <>
+        <div className="testimonial reveal">
+          <div className="test-ph">
+            Client testimonial coming soon.
+          </div>
+        </div>
+
+        <div className="testimonial reveal">
+          <div className="test-ph">
+            Client testimonial coming soon.
+          </div>
+        </div>
+      </>
+    )}
+  </div>
+</section>
 
         <section id="cta">
           <h2 className="cta-heading reveal">
