@@ -107,17 +107,17 @@ export default function Home() {
   const fetchTestimonials = async () => {
     try {
       const items = await client.fetch<Testimonial[]>(`
-        *[_type == "testimonial"] | order(displayOrder asc) {
-          _id,
-          customerName,
-          petName,
-          quote,
-          rating,
-          source,
-          featured,
-          displayOrder
-        }
-      `);
+  *[_type == "testimonial"] | order(displayOrder asc) {
+    _id,
+    customerName,
+    petName,
+    quote,
+    rating,
+    source,
+    featured,
+    displayOrder
+  }
+`);
 
       setTestimonials(items);
     } catch (error) {
@@ -433,40 +433,54 @@ export default function Home() {
   <div className="testimonials-grid">
     {testimonials.length > 0 ? (
       testimonials.map((item) => (
-        <div className="testimonial" key={item._id}>
-          <div className="test-ph">
-            <p>{item.quote}</p>
+        <article className="testimonial-card reveal" key={item._id}>
+          <div className="testimonial-top">
+            <div className="testimonial-person">
+              <div className="testimonial-avatar">
+                {item.customerName?.charAt(0).toUpperCase() || "T"}
+              </div>
 
-            <strong>{item.customerName}</strong>
+              <div>
+                <strong className="testimonial-name">
+                  {item.customerName}
+                </strong>
 
-            {item.petName && (
-              <div>Pet: {item.petName}</div>
-            )}
+                {item.petName && (
+                  <span className="testimonial-pet">
+                    Pet: {item.petName}
+                  </span>
+                )}
+              </div>
+            </div>
 
             {item.rating && (
-              <div>{"★".repeat(item.rating)}</div>
-            )}
-
-            {item.source && (
-              <span>{item.source}</span>
+              <div
+                className="testimonial-stars"
+                aria-label={`${item.rating} out of 5 stars`}
+              >
+                {"★".repeat(item.rating)}
+                <span className="empty-stars">
+                  {"★".repeat(5 - item.rating)}
+                </span>
+              </div>
             )}
           </div>
-        </div>
+
+          <p className="testimonial-quote">
+            {item.quote}
+          </p>
+
+          {item.source && (
+            <div className="testimonial-source">
+              {item.source.charAt(0).toUpperCase() + item.source.slice(1)}
+            </div>
+          )}
+        </article>
       ))
     ) : (
-      <>
-        <div className="testimonial reveal">
-          <div className="test-ph">
-            Client testimonial coming soon.
-          </div>
-        </div>
-
-        <div className="testimonial reveal">
-          <div className="test-ph">
-            Client testimonial coming soon.
-          </div>
-        </div>
-      </>
+      <p className="testimonials-empty">
+        Client testimonials coming soon.
+      </p>
     )}
   </div>
 </section>
