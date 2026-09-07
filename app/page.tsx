@@ -1,6 +1,9 @@
 "use client";
+
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { client } from "@/sanity/lib/client";
+
 const CALENDLY_URL = "https://calendly.com/aschmidtriquelme001/30min";
 const CLIENT_PORTAL_URL =
   "https://www.timetopet.com/portal/tobys-pet-sitting";
@@ -36,9 +39,19 @@ const services = [
   },
 ];
 
+type DogPhoto = {
+  _id: string;
+  name: string;
+  caption?: string;
+  featured?: boolean;
+  displayOrder?: number;
+  imageUrl: string;
+};
+
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dogPhotos, setDogPhotos] = useState<DogPhoto[]>([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,6 +90,29 @@ export default function Home() {
 
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+  const fetchDogPhotos = async () => {
+    try {
+      const photos = await client.fetch<DogPhoto[]>(`
+        *[_type == "dogPhoto"] | order(displayOrder asc) {
+          _id,
+          name,
+          caption,
+          featured,
+          displayOrder,
+          "imageUrl": image.asset->url
+        }
+      `);
+
+      setDogPhotos(photos);
+    } catch (error) {
+      console.error("Failed to load dog photos:", error);
+    }
+  };
+
+  fetchDogPhotos();
+}, []);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -325,36 +361,34 @@ export default function Home() {
           </div>
 
           <div className="gallery-grid reveal">
-            <div className="gi">
-              <div className="giph gp1">
-                <span className="giph-note">Portrait — tall</span>
-              </div>
-            </div>
+              {[0, 1, 2, 3, 4].map((index) => {
+                const dog = dogPhotos[index];
 
-            <div className="gi">
-              <div className="giph gp2">
-                <span className="giph-note">Square</span>
-              </div>
+                return (
+                  <div className="gi" key={dog?._id ?? index}>
+                    <div
+                      className={`giph gp${index + 1}`}
+                      style={
+                        dog
+                          ? {
+                              backgroundImage: `url("${dog.imageUrl}")`,
+                              backgroundSize: "cover",
+                              backgroundPosition: "center",
+                            }
+                          : undefined
+                      }
+                    >
+                      {dog && (
+                        <div className="giph-note">
+                          <strong>{dog.name}</strong>
+                          {dog.caption && <span>{dog.caption}</span>}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-
-            <div className="gi">
-              <div className="giph gp3">
-                <span className="giph-note">Square</span>
-              </div>
-            </div>
-
-            <div className="gi">
-              <div className="giph gp4">
-                <span className="giph-note">Landscape</span>
-              </div>
-            </div>
-
-            <div className="gi">
-              <div className="giph gp5">
-                <span className="giph-note">Landscape</span>
-              </div>
-            </div>
-          </div>
         </section>
 
         <section id="testimonials">
