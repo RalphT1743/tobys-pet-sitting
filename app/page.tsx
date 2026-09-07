@@ -1,6 +1,9 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+const CALENDLY_URL = "https://calendly.com/aschmidtriquelme001/30min";
+const CLIENT_PORTAL_URL =
+  "https://www.timetopet.com/portal/tobys-pet-sitting";
 
 const services = [
   {
@@ -114,12 +117,22 @@ export default function Home() {
             <a href="#cta">Contact</a>
           </li>
           <li>
-            <a href="#" className="nav-login">
+            <a
+              href={CLIENT_PORTAL_URL}
+              className="nav-login"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Client Login
             </a>
           </li>
           <li>
-            <a href="#" className="nav-cta">
+            <a
+              href={CALENDLY_URL}
+              className="nav-cta"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Meet &amp; Greet
             </a>
           </li>
@@ -149,12 +162,24 @@ export default function Home() {
             </a>
           </li>
           <li>
-            <a href="#" className="nav-login" onClick={closeMenu}>
+            <a
+              href={CLIENT_PORTAL_URL}
+              className="nav-login"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeMenu}
+            >
               Client Login
             </a>
           </li>
           <li>
-            <a href="#" className="nav-cta" onClick={closeMenu}>
+            <a
+              href={CALENDLY_URL}
+              className="nav-cta"
+              onClick={closeMenu}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Schedule a Meet &amp; Greet
             </a>
           </li>
@@ -181,7 +206,12 @@ export default function Home() {
               families in our community.
             </p>
 
-            <a href="#" className="hero-btn">
+            <a
+              href={CALENDLY_URL}
+              className="hero-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Schedule a Meet &amp; Greet
             </a>
           </div>
@@ -357,7 +387,12 @@ export default function Home() {
               anything is booked. No commitment. No pressure.
             </p>
 
-            <a href="#" className="btn-cta-b">
+            <a
+              href={CALENDLY_URL}
+              className="btn-cta-b"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Schedule a Meet &amp; Greet
             </a>
           </div>
@@ -369,13 +404,19 @@ export default function Home() {
           <div>
             <p className="footer-name">Toby&apos;s Pet Sitting</p>
 
-            <div className="footer-contact">
+          <div className="footer-contact">
               <a href="tel:+14156089056">(415) 608-9056</a>
               <br />
-              <span>Email coming soon</span>
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=aschmidtriquelme001@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                aschmidtriquelme001@gmail.com
+              </a>
               <br />
               South Bay, CA
-            </div>
+          </div>
           </div>
 
           <div className="footer-col">
@@ -388,8 +429,20 @@ export default function Home() {
 
           <div className="footer-col">
             <h5>Get Started</h5>
-            <a href="#">Schedule a Meet &amp; Greet</a>
-            <a href="#" className="footer-portal">
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Schedule a Meet &amp; Greet
+            </a>
+
+            <a
+              href={CLIENT_PORTAL_URL}
+              className="footer-portal"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Client Login
             </a>
             <a href="#about">About Alan &amp; Julio</a>
