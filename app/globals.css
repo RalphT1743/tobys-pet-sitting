@@ -328,11 +328,48 @@ img { display: block; max-width: 100%; height: auto; }
 .gi:nth-child(1) { grid-row: 1/3; }
 .gi img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
 .gi:hover img { transform: scale(1.03); }
-.giph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+.giph {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  overflow: hidden;
+}
 .gp1 { background: #A0B8BC; } .gp2 { background: #B0C4B0; } .gp3 { background: #C0B4A0; }
 .gp4 { background: #A8BCB8; } .gp5 { background: #B8C0A8; }
 .giph svg { width: 26px; height: 26px; stroke: rgba(48,43,41,0.22); fill: none; stroke-width: 1; }
-.giph-note { font-size: 10px; font-style: italic; color: rgba(48,43,41,0.3); text-align: center; max-width: 100px; line-height: 1.4; }
+.giph-note {
+  width: 100%;
+  max-width: none;
+  padding: 48px 18px 16px;
+  text-align: left;
+  font-style: normal;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.4;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+}
+
+.giph-note strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 3px;
+}
+
+.giph-note span {
+  display: block;
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.78);
+}
 
 /* ── TESTIMONIALS ── */
 #testimonials {
