@@ -8,14 +8,12 @@ export const dogPhotoType = defineType({
   fields: [
     defineField({
       name: 'name',
-      title: 'Dog Name',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      
     }),
 
     defineField({
       name: 'image',
-      title: 'Dog Photo',
       type: 'image',
       options: {
         hotspot: true,
