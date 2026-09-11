@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
+import Link from "next/link";
 
 const CALENDLY_URL = "https://calendly.com/aschmidtriquelme001/30min";
 const CLIENT_PORTAL_URL =
@@ -158,7 +159,7 @@ export default function Home() {
         className={`site-nav ${scrolled ? "scrolled" : ""}`}
         aria-label="Main navigation"
       >
-        <a className="nav-brand" href="#">
+        <a className="nav-brand" href="/">
           Toby&apos;s Pet Sitting
         </a>
 
@@ -393,7 +394,7 @@ export default function Home() {
         <section id="gallery">
           <div className="gallery-header reveal">
             <h2>The dogs we&apos;ve cared for</h2>
-            <a href="#">See all photos</a>
+            <Link href="/photos">See all photos</Link>
           </div>
 
           <div className="gallery-grid reveal">
@@ -565,8 +566,8 @@ export default function Home() {
           </p>
 
           <nav className="footer-legal" aria-label="Legal">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms of Service</Link>
           </nav>
         </div>
       </footer>

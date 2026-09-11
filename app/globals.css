@@ -579,3 +579,699 @@ footer {
   .gallery-grid { grid-template-columns: 1fr; grid-template-rows: none; }
   .gi { min-height: 200px; }
 }
+/* =====================================================
+   DOG GALLERY PAGE
+===================================================== */
+
+.dog-gallery-page {
+  background: #ffffff;
+  color: #302b28;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.dog-gallery-hero {
+  background: #302b28;
+  color: #f5f0e4;
+}
+
+.dog-gallery-hero-inner {
+  width: min(1110px, calc(100% - 96px));
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  align-items: end;
+  gap: 80px;
+
+  padding: 68px 0 58px;
+}
+
+.dog-gallery-kicker {
+  margin: 0 0 14px;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+
+  color: #91a86c;
+}
+
+.dog-gallery-hero h1 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(50px, 5.4vw, 76px);
+  font-weight: 400;
+  line-height: 0.97;
+
+  letter-spacing: -0.04em;
+
+  color: #f6f1e6;
+}
+
+.dog-gallery-hero-copy {
+  max-width: 370px;
+  padding-bottom: 4px;
+}
+
+.dog-gallery-hero-copy p {
+  margin: 0 0 23px;
+
+  font-size: 15px;
+  line-height: 1.65;
+
+  color: #d8d1c5;
+}
+
+.dog-gallery-back {
+  color: #adc789;
+
+  font-size: 13px;
+  text-decoration: none;
+
+  border-bottom: 1px solid #adc789;
+  padding-bottom: 3px;
+}
+
+
+/* hero lower information row */
+
+.dog-gallery-meta {
+  width: min(1110px, calc(100% - 96px));
+  margin: 0 auto;
+
+  min-height: 62px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid rgba(245, 240, 228, 0.12);
+
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.19em;
+
+  color: #d8d1c5;
+}
+
+
+/* =====================================================
+   GALLERY AREA
+===================================================== */
+
+.dog-gallery-section {
+  background: #ffffff;
+  padding: 58px 0 90px;
+}
+
+.dog-gallery-grid {
+  width: min(1110px, calc(100% - 96px));
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: 175px;
+
+  gap: 12px;
+}
+
+
+/* =====================================================
+   PHOTO CARDS
+===================================================== */
+
+.dog-gallery-card {
+  position: relative;
+  overflow: hidden;
+
+  background: #e9e5dc;
+
+  opacity: 0;
+
+  transform: translateY(45px);
+
+  transition:
+    opacity 750ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 850ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 450ms ease;
+}
+
+
+/* Scroll entrances come from different directions */
+
+.dog-gallery-card:nth-child(3n + 1) {
+  transform: translate(-36px, 40px);
+}
+
+.dog-gallery-card:nth-child(3n + 2) {
+  transform: translateY(55px);
+}
+
+.dog-gallery-card:nth-child(3n) {
+  transform: translate(36px, 40px);
+}
+
+.dog-gallery-card.is-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+
+/* =====================================================
+   INTENTIONAL GRID SIZING
+===================================================== */
+
+.dog-gallery-card:nth-child(8n + 1) {
+  grid-column: span 5;
+  grid-row: span 3;
+
+  border-radius: 120px 10px 10px 10px;
+}
+
+.dog-gallery-card:nth-child(8n + 2) {
+  grid-column: span 3;
+  grid-row: span 2;
+
+  border-radius: 10px 90px 10px 10px;
+}
+
+.dog-gallery-card:nth-child(8n + 3) {
+  grid-column: span 4;
+  grid-row: span 2;
+
+  border-radius: 90px 10px 90px 10px;
+}
+
+.dog-gallery-card:nth-child(8n + 4) {
+  grid-column: span 4;
+  grid-row: span 2;
+
+  border-radius: 10px 10px 100px 10px;
+}
+
+.dog-gallery-card:nth-child(8n + 5) {
+  grid-column: span 3;
+  grid-row: span 2;
+
+  border-radius: 100px 100px 10px 10px;
+}
+
+.dog-gallery-card:nth-child(8n + 6) {
+  grid-column: span 5;
+  grid-row: span 3;
+
+  border-radius: 10px 120px 10px 120px;
+}
+
+.dog-gallery-card:nth-child(8n + 7) {
+  grid-column: span 7;
+  grid-row: span 2;
+
+  border-radius: 10px 100px 100px 10px;
+}
+
+.dog-gallery-card:nth-child(8n) {
+  grid-column: span 5;
+  grid-row: span 2;
+
+  border-radius: 100px 10px 100px 10px;
+}
+
+
+/* =====================================================
+   IMAGES
+===================================================== */
+
+.dog-gallery-image {
+  object-fit: cover;
+
+  transition:
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 700ms ease;
+}
+
+.dog-gallery-card:hover {
+  box-shadow: 0 18px 40px rgba(48, 43, 40, 0.11);
+}
+
+.dog-gallery-card:hover .dog-gallery-image {
+  transform: scale(1.045);
+}
+
+
+/* =====================================================
+   IMAGE CAPTION
+===================================================== */
+
+.dog-gallery-info {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 90px 22px 19px;
+
+  color: white;
+
+  background: linear-gradient(
+    to top,
+    rgba(35, 30, 27, 0.72),
+    rgba(35, 30, 27, 0)
+  );
+}
+
+.dog-gallery-info h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.dog-gallery-info p {
+  margin: 4px 0 0;
+
+  max-width: 400px;
+
+  font-size: 12px;
+  line-height: 1.4;
+
+  color: rgba(255, 255, 255, 0.88);
+}
+
+
+/* =====================================================
+   BOTTOM CTA
+===================================================== */
+
+.dog-gallery-cta {
+  background: #f3ede0;
+
+  padding: 68px max(48px, calc((100vw - 1110px) / 2));
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 50px;
+}
+
+.dog-gallery-cta h2 {
+  margin: 0;
+
+  max-width: 600px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(32px, 4vw, 50px);
+  font-weight: 400;
+  line-height: 1.06;
+
+  letter-spacing: -0.03em;
+}
+
+.dog-gallery-cta-button {
+  background: #738b55;
+  color: white;
+
+  padding: 15px 25px;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  transition:
+    transform 200ms ease,
+    background 200ms ease;
+}
+
+.dog-gallery-cta-button:hover {
+  transform: translateY(-2px);
+  background: #637949;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .dog-gallery-hero-inner {
+    width: min(100% - 48px, 1110px);
+
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    padding: 58px 0 45px;
+  }
+
+  .dog-gallery-hero-copy {
+    max-width: 500px;
+  }
+
+  .dog-gallery-meta,
+  .dog-gallery-grid {
+    width: min(100% - 48px, 1110px);
+  }
+
+  .dog-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 270px;
+  }
+
+  .dog-gallery-card:nth-child(n) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .dog-gallery-card:nth-child(4n + 1) {
+    grid-row: span 2;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .dog-gallery-hero-inner {
+    width: calc(100% - 36px);
+
+    padding: 48px 0 38px;
+  }
+
+  .dog-gallery-hero h1 {
+    font-size: 48px;
+  }
+
+  .dog-gallery-meta {
+    width: calc(100% - 36px);
+
+    min-height: 54px;
+  }
+
+  .dog-gallery-section {
+    padding: 28px 0 60px;
+  }
+
+  .dog-gallery-grid {
+    width: calc(100% - 28px);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .dog-gallery-card:nth-child(n) {
+    width: 100%;
+    height: 360px;
+
+    border-radius: 8px 75px 8px 8px;
+  }
+
+  .dog-gallery-card:nth-child(2n) {
+    border-radius: 75px 8px 75px 8px;
+  }
+
+  .dog-gallery-card:nth-child(3n) {
+    border-radius: 8px 8px 80px 80px;
+  }
+
+  .dog-gallery-cta {
+    padding: 52px 22px;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 30px;
+  }
+
+}
+
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .dog-gallery-card {
+    opacity: 1;
+    transform: none;
+
+    transition: none;
+  }
+
+  .dog-gallery-image {
+    transition: none;
+  }
+
+}
+/* =====================================================
+   LEGAL PAGES
+===================================================== */
+
+.legal-page {
+  min-height: 100vh;
+  background: #ffffff;
+  color: #302b28;
+}
+
+
+/* HERO */
+
+.legal-hero {
+  background: #302b28;
+  color: #f5f0e4;
+}
+
+.legal-hero-inner {
+  width: min(1110px, calc(100% - 96px));
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  align-items: end;
+  gap: 80px;
+
+  padding: 68px 0 58px;
+}
+
+.legal-kicker {
+  margin: 0 0 14px;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+
+  color: #91a86c;
+}
+
+.legal-hero h1 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(50px, 5.4vw, 76px);
+  font-weight: 400;
+
+  line-height: 0.97;
+  letter-spacing: -0.04em;
+
+  color: #f6f1e6;
+}
+
+.legal-hero-copy {
+  max-width: 390px;
+}
+
+.legal-hero-copy p {
+  margin: 0 0 24px;
+
+  font-size: 15px;
+  line-height: 1.7;
+
+  color: #d8d1c5;
+}
+
+.legal-back {
+  color: #adc789;
+
+  font-size: 13px;
+  text-decoration: none;
+
+  border-bottom: 1px solid #adc789;
+  padding-bottom: 3px;
+}
+
+
+/* META STRIP */
+
+.legal-meta {
+  background: #f3ede0;
+}
+
+.legal-meta-inner {
+  width: min(1110px, calc(100% - 96px));
+  margin: 0 auto;
+
+  min-height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+
+  color: #6f864d;
+}
+
+
+/* BODY */
+
+.legal-content {
+  padding: 78px 0 110px;
+  background: #ffffff;
+}
+
+.legal-document {
+  width: min(760px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.legal-document section {
+  padding: 0 0 42px;
+  margin: 0 0 42px;
+
+  border-bottom: 1px solid #e6e1d7;
+}
+
+.legal-document section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.legal-document h2 {
+  margin: 0 0 17px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  line-height: 1.2;
+  font-weight: 400;
+
+  color: #302b28;
+}
+
+.legal-document p {
+  margin: 0 0 16px;
+
+  font-size: 15px;
+  line-height: 1.8;
+
+  color: #655f59;
+}
+
+.legal-document p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-document ul {
+  margin: 18px 0 20px;
+  padding-left: 22px;
+}
+
+.legal-document li {
+  margin: 9px 0;
+
+  font-size: 15px;
+  line-height: 1.7;
+
+  color: #655f59;
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+  .legal-hero-inner {
+    width: min(100% - 48px, 1110px);
+
+    grid-template-columns: 1fr;
+    gap: 28px;
+
+    padding: 58px 0 46px;
+  }
+
+  .legal-hero-copy {
+    max-width: 520px;
+  }
+
+  .legal-meta-inner {
+    width: min(100% - 48px, 1110px);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .legal-hero-inner {
+    width: calc(100% - 36px);
+
+    padding: 48px 0 38px;
+  }
+
+  .legal-hero h1 {
+    font-size: 48px;
+  }
+
+  .legal-meta-inner {
+    width: calc(100% - 36px);
+
+    min-height: 58px;
+
+    gap: 20px;
+
+    font-size: 8px;
+  }
+
+  .legal-meta-inner span:last-child {
+    text-align: right;
+  }
+
+  .legal-content {
+    padding: 52px 0 75px;
+  }
+
+  .legal-document {
+    width: calc(100% - 36px);
+  }
+
+  .legal-document section {
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+  }
+
+  .legal-document h2 {
+    font-size: 24px;
+  }
+
+}
