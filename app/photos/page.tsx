@@ -4,6 +4,9 @@ import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import GalleryReveal from "./GalleryReveal";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 type DogPhoto = {
   _id: string;
   name?: string;
