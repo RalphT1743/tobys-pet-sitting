@@ -320,13 +320,25 @@ export default function Home() {
         <section id="how-it-works">
           <h2 className="sec-heading reveal">How to become a customer</h2>
           <p className="how-intro reveal">
-            New to Toby&apos;s? We&apos;ll meet you and your dog before setting up
-            your Time To Pet account.
+            Start with a meet and greet. After we&apos;ve talked, we&apos;ll send
+            your Time To Pet login so you can set up your dog&apos;s care.
           </p>
           <div className="how-steps reveal">
-            <div><span>01</span><h3>Schedule a meet and greet</h3><p>Pick a time to meet Alan and Julio and tell us about your dog.</p></div>
-            <div><span>02</span><h3>Meet in person</h3><p>We&apos;ll get to know each other and talk through the care your dog needs.</p></div>
-            <div><span>03</span><h3>Get your client login</h3><p>After we meet, we&apos;ll send your Time To Pet account invitation. You can then upload your dog&apos;s vaccination records and request care.</p></div>
+            <div>
+              <span>01</span>
+              <h3>Schedule a meet and greet</h3>
+              <p>Pick a time to talk with Julio and Alan.</p>
+            </div>
+            <div>
+              <span>02</span>
+              <h3>Meet your way</h3>
+              <p>We can talk on Zoom or another video call, by phone, or in person. Tell us about your dog and the care they need.</p>
+            </div>
+            <div>
+              <span>03</span>
+              <h3>Get your client login</h3>
+              <p>After the meet and greet, we&apos;ll send your Time To Pet invitation. Use it to upload vaccination records and request the specific care your dog needs.</p>
+            </div>
           </div>
           <a href={CALENDLY_URL} className="how-button" target="_blank" rel="noopener noreferrer">
             Schedule a Meet &amp; Greet
@@ -534,9 +546,9 @@ export default function Home() {
 
           <div className="cta-right reveal">
             <p className="cta-body">
-              Every new client starts with a complimentary meet-and-greet — a
-              short visit so you and your dog can get comfortable with us before
-              anything is booked. No commitment. No pressure.
+              Every new client starts with a complimentary meet and greet.
+              We can talk by video, phone, or in person about your dog and
+              the care they need before you book.
             </p>
 
             <a
