@@ -14,22 +14,22 @@ const services = [
     name: "Drop-In Sitting",
     description:
       "A convenient visit to make sure your pet gets the attention, care, and company they need.",
-    price: "$30",
-    note: "per visit",
+    price: "$10",
+    note: "per hour",
   },
   {
     name: "Overnight Pet Sitting",
     description:
       "Pet sitting takes place in our home, with walks, feeding, playtime, and plenty of love and attention included.",
-    price: "$45–$55",
-    note: "small dogs $45/day · large dogs $55/day",
+    price: "$45–$50",
+    note: "small dogs $45/day · large dogs $50/day",
   },
   {
-    name: "Doggy Bath",
+    name: "Dog Baths",
     description:
       "A refreshing bath to keep your pup clean, comfortable, and happy.",
-    price: "$20",
-    note: "per bath",
+    price: "$20–$35",
+    note: "based on your dog's size",
   },
   {
     name: "Airport Transportation",
@@ -159,22 +159,33 @@ export default function Home() {
         className={`site-nav ${scrolled ? "scrolled" : ""}`}
         aria-label="Main navigation"
       >
-        <a className="nav-brand" href="/">
+        <Link className="nav-brand" href="/">
           Toby&apos;s Pet Sitting
-        </a>
+        </Link>
 
-        <button
-          className="nav-toggle"
-          aria-label="Toggle navigation"
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((current) => !current)}
-        >
-          <svg viewBox="0 0 24 24">
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
-        </button>
+        <div className="mobile-nav-actions">
+          <a
+            className="mobile-login"
+            href={CLIENT_PORTAL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Client Login
+          </a>
+          <button
+            className="nav-toggle"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setMenuOpen((current) => !current)}
+          >
+            <svg viewBox="0 0 24 24">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+        </div>
 
         <ul className="nav-links">
           <li>
@@ -212,7 +223,15 @@ export default function Home() {
         </ul>
       </nav>
 
-      <div className={`nav-drawer ${menuOpen ? "open" : ""}`}>
+      <nav className="mobile-section-nav" aria-label="Page sections">
+        <a href="#services" onClick={closeMenu}>Services</a>
+        <a href="#about" onClick={closeMenu}>About</a>
+        <a href="#gallery" onClick={closeMenu}>Photos</a>
+        <a href="#testimonials" onClick={closeMenu}>Reviews</a>
+        <a href="#cta" onClick={closeMenu}>Contact</a>
+      </nav>
+
+      <div id="mobile-menu" className={`nav-drawer ${menuOpen ? "open" : ""}`}>
         <ul className="nav-links">
           <li>
             <a href="#about" onClick={closeMenu}>
@@ -232,6 +251,11 @@ export default function Home() {
           <li>
             <a href="#cta" onClick={closeMenu}>
               Contact
+            </a>
+          </li>
+          <li>
+            <a href="#how-it-works" onClick={closeMenu}>
+              How to Become a Customer
             </a>
           </li>
           <li>
@@ -275,7 +299,7 @@ export default function Home() {
             </h1>
 
             <p className="hero-tagline">
-              Toby&apos;s Pet Sitting — run by Alan &amp; Julio, for the
+              Toby&apos;s Pet Sitting: run by Alan &amp; Julio, for the
               families in our community.
             </p>
 
@@ -287,7 +311,26 @@ export default function Home() {
             >
               Schedule a Meet &amp; Greet
             </a>
+            <a className="hero-secondary" href="#how-it-works">
+              How to become a customer
+            </a>
           </div>
+        </section>
+
+        <section id="how-it-works">
+          <h2 className="sec-heading reveal">How to become a customer</h2>
+          <p className="how-intro reveal">
+            New to Toby&apos;s? We&apos;ll meet you and your dog before setting up
+            your Time To Pet account.
+          </p>
+          <div className="how-steps reveal">
+            <div><span>01</span><h3>Schedule a meet and greet</h3><p>Pick a time to meet Alan and Julio and tell us about your dog.</p></div>
+            <div><span>02</span><h3>Meet in person</h3><p>We&apos;ll get to know each other and talk through the care your dog needs.</p></div>
+            <div><span>03</span><h3>Get your client login</h3><p>After we meet, we&apos;ll send your Time To Pet account invitation. You can then upload your dog&apos;s vaccination records and request care.</p></div>
+          </div>
+          <a href={CALENDLY_URL} className="how-button" target="_blank" rel="noopener noreferrer">
+            Schedule a Meet &amp; Greet
+          </a>
         </section>
 
         <section id="services">
@@ -336,24 +379,24 @@ export default function Home() {
         <section id="about">
           <div className="about-copy reveal">
             <h2>
-              Meet Alan <em>&amp; Julio</em>
+              Meet Julio <em>&amp; Alan</em>
             </h2>
 
             <p>
-              Toby&apos;s Pet Sitting is run by Alan and Julio — a couple
-              serving families throughout the South Bay who have been fostering
-              and caring for dogs in their community since 2023.
+              We&apos;re Alan and Julio. We&apos;ve been fostering and caring for
+              dogs in our South Bay community since 2023, and we love getting
+              to know the families behind them.
             </p>
 
             <p>
-              This is a personal service, not a platform. When you book with
-              Toby&apos;s, Alan or Julio is caring for your dog. No strangers.
-              No handoffs.
+              When your dog stays with us, you&apos;ll know who&apos;s looking after
+              them. One of us will be there to feed them, walk them, and make
+              sure they feel at home.
             </p>
 
             <p>
-              Every new client starts with a meet-and-greet — because that&apos;s
-              the right way to begin.
+              We like to meet you and your dog first so everyone feels
+              comfortable before the first visit.
             </p>
           </div>
 
@@ -370,23 +413,21 @@ export default function Home() {
 
         <div className="trust-bar">
           <div className="trust-item reveal">
-            <div className="trust-num">20+</div>
+            <div className="trust-num">40+</div>
             <div className="trust-label">
               Dogs fostered and cared for since 2023
             </div>
           </div>
 
           <div className="trust-item reveal">
-            <div className="trust-num">4</div>
-            <div className="trust-label">
-              Services for families throughout the South Bay
-            </div>
+            <div className="trust-num">25+</div>
+            <div className="trust-label">Families served in the South Bay</div>
           </div>
 
           <div className="trust-item reveal">
             <div className="trust-num">1:1</div>
             <div className="trust-label">
-              Every dog cared for personally — no strangers, no handoffs
+              Personal care from Alan or Julio, every time
             </div>
           </div>
         </div>
@@ -534,12 +575,13 @@ export default function Home() {
             <h5>Services</h5>
             <a href="#services">Drop-In Sitting</a>
             <a href="#services">Overnight Pet Sitting</a>
-            <a href="#services">Doggy Bath</a>
+            <a href="#services">Dog Baths</a>
             <a href="#services">Airport Transportation</a>
           </div>
 
           <div className="footer-col">
             <h5>Get Started</h5>
+            <a href="#how-it-works">How to Become a Customer</a>
             <a
               href={CALENDLY_URL}
               target="_blank"
