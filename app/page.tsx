@@ -475,7 +475,7 @@ export default function Home() {
   <div className="testimonials-grid">
     {testimonials.length > 0 ? (
       testimonials.map((item) => (
-        <article className="testimonial-card reveal" key={item._id}>
+        <article className="testimonial-card" key={item._id}>
           <div className="testimonial-top">
             <div className="testimonial-person">
               <div className="testimonial-avatar">
