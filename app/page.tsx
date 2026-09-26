@@ -379,24 +379,24 @@ export default function Home() {
         <section id="about">
           <div className="about-copy reveal">
             <h2>
-              Meet Julio <em>&amp; Alan</em>
+              Meet Julio &amp; Alan
             </h2>
 
             <p>
-              We&apos;re Alan and Julio. We&apos;ve been fostering and caring for
-              dogs in our South Bay community since 2023, and we love getting
-              to know the families behind them.
+              Hi, we&apos;re Julio and Alan. We&apos;ve been fostering and caring
+              for dogs in the South Bay since 2023. We know it takes trust to
+              leave your dog with someone new.
             </p>
 
             <p>
-              When your dog stays with us, you&apos;ll know who&apos;s looking after
-              them. One of us will be there to feed them, walk them, and make
-              sure they feel at home.
+              When you book with Toby&apos;s, one of us will be looking after
+              your dog. We want to learn their routine, what they love, and
+              what helps them settle in.
             </p>
 
             <p>
-              We like to meet you and your dog first so everyone feels
-              comfortable before the first visit.
+              Let&apos;s meet before the first visit. You can tell us about your
+              dog, ask us anything, and see if we&apos;re a good fit.
             </p>
           </div>
 
