@@ -6,8 +6,6 @@ import { client } from "@/sanity/lib/client";
 import Link from "next/link";
 
 const CALENDLY_URL = "https://calendly.com/aschmidtriquelme001/30min";
-const CLIENT_PORTAL_URL =
-  "https://www.timetopet.com/portal/tobys-pet-sitting";
 
 const services = [
   {
@@ -164,14 +162,6 @@ export default function Home() {
         </Link>
 
         <div className="mobile-nav-actions">
-          <a
-            className="mobile-login"
-            href={CLIENT_PORTAL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Client Login
-          </a>
           <button
             className="nav-toggle"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -199,16 +189,6 @@ export default function Home() {
           </li>
           <li>
             <a href="#cta">Contact</a>
-          </li>
-          <li>
-            <a
-              href={CLIENT_PORTAL_URL}
-              className="nav-login"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Client Login
-            </a>
           </li>
           <li>
             <a
@@ -256,17 +236,6 @@ export default function Home() {
           <li>
             <a href="#how-it-works" onClick={closeMenu}>
               How to Become a Customer
-            </a>
-          </li>
-          <li>
-            <a
-              href={CLIENT_PORTAL_URL}
-              className="nav-login"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={closeMenu}
-            >
-              Client Login
             </a>
           </li>
           <li>
@@ -320,8 +289,7 @@ export default function Home() {
         <section id="how-it-works">
           <h2 className="sec-heading reveal">How to become a customer</h2>
           <p className="how-intro reveal">
-            Start with a meet and greet. After we&apos;ve talked, we&apos;ll send
-            your Time To Pet login so you can set up your dog&apos;s care.
+            Start by scheduling a complimentary meet and greet. We&apos;ll learn about your pet and help you plan the care they need.
           </p>
           <div className="how-steps reveal">
             <div>
@@ -336,8 +304,8 @@ export default function Home() {
             </div>
             <div>
               <span>03</span>
-              <h3>Get your client login</h3>
-              <p>After the meet and greet, we&apos;ll send your Time To Pet invitation. Use it to upload vaccination records and request the specific care your dog needs.</p>
+              <h3>Plan your pet&apos;s care</h3>
+              <p>After the meet and greet, we&apos;ll follow up with you directly about next steps, care details, and scheduling.</p>
             </div>
           </div>
           <a href={CALENDLY_URL} className="how-button" target="_blank" rel="noopener noreferrer">
@@ -600,15 +568,6 @@ export default function Home() {
               rel="noopener noreferrer"
             >
               Schedule a Meet &amp; Greet
-            </a>
-
-            <a
-              href={CLIENT_PORTAL_URL}
-              className="footer-portal"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Client Login
             </a>
             <a href="#about">About Alan &amp; Julio</a>
           </div>
